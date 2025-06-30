@@ -20,10 +20,9 @@ inputs.forEach((item, index) => {
   label.textContent = item.name || `Field ${index + 1}`;
   item.parentNode.insertBefore(label, item);
 
-  const names = item.name;
-  const capitalized = names.charAt(0).toUpperCase() + names.slice(1);
+  if (item.name) {
+    const capitalized = item.name.charAt(0).toUpperCase() + item.name.slice(1);
 
-  if (!item.hasAttribute('placeholder')) {
     item.setAttribute('placeholder', capitalized);
   }
 });
